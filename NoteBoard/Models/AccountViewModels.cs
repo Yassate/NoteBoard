@@ -49,7 +49,7 @@ namespace NoteBoard.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "Email address")]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -64,6 +64,12 @@ namespace NoteBoard.Models
 
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "This field is required.")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Field must have between 2 and 50 characters")]
+        [RegularExpression(@"\D+", ErrorMessage = "Field can contain only letters.")]
+        [Display(Name = "Name")]
+        public string Name { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

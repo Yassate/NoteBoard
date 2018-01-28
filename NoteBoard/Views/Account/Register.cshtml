@@ -1,40 +1,50 @@
 ﻿@model NoteBoard.Models.RegisterViewModel
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Register";
 }
 
-<h2>@ViewBag.Title.</h2>
+<div class="bs-component" style="margin-top: 3rem;">
+    <div class="jumbotron">
+        <h1 class="display-3 register">Sign up in seconds!</h1>
+        <p class="lead register">Please enter your sign up informations.</p>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="card text-white bg-primary mb-3 register">
+                <div class="card-header"></div>
+                <div class="card-body">
+                    <div class="form-group register">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { placeholder = "Name", @class = "form-control register" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-val-error" })
+                    </div>
+                    <div class="form-group register">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { placeholder = "Email address", @class = "form-control register" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-val-error" })
+                    </div>
+                    <div class="form-group register">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { placeholder = "Password", @class = "form-control register" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-val-error" })
+                    </div>
+                    <div class="form-group register">
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { placeholder = "Confirm Password", @class = "form-control register" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-val-error" })
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-val-error" })
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-lg btn-block register" value="Create my account">
+            </div>
+        }
+        <hr class="my-4">
+        <button type="button" class="btn btn-primary btn-lg btn-block register"><img src="https://www.shareicon.net/data/16x16/2015/09/25/107042_new_512x512.png" style="margin-right: 8px;" />Sign up with Google account</button>
+        <p></p>
+        <button type="button" class="btn btn-primary btn-lg btn-block register"><img src="https://www.shareicon.net/data/16x16/2017/06/28/888050_logo_512x512.png" style="margin-right: 8px; background-color: white" />Sign up with Facebook account</button>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+</div>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

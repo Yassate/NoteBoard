@@ -1,0 +1,90 @@
+﻿.display-3.login {
+    text-align: center;
+}
+
+.lead.login {
+    text-align: center;
+}
+
+.form-group.login {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 150%;
+}
+
+.form-control.login {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card.login {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    max-width: 30rem;
+}
+
+.btn.login {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30rem;
+    display: block;
+}
+
+.btn-group-vertical.login {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 16rem;
+    display: block;
+}
+
+.fieldset-login {
+    max-width: 17.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.display-3.register {
+    text-align: center;
+}
+
+.lead.register {
+    text-align: center;
+}
+
+.form-group.register {
+    text-align: center;
+}
+
+.form-control.register {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card.register {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3rem;
+    max-width: 30rem;
+}
+
+.btn.register {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 30rem;
+}
+
+text-val-error {
+    color: white;
+
+}
+
+.validation-summary-errors ul, .validation-summary-errors li {
+    list-style: none;
+    display: inline;
+    padding: 0;
+    text-decoration: underline;
+}

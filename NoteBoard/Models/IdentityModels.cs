@@ -16,6 +16,7 @@ namespace NoteBoard.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public string Name { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -29,5 +30,9 @@ namespace NoteBoard.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Board> Boards { get; set; }
+        public DbSet<SingleNote> SingleNotes { get; set; }
+
     }
 }

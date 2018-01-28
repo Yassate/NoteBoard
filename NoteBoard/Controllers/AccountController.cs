@@ -139,7 +139,8 @@ namespace NoteBoard.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var model = new RegisterViewModel();
+            return View(model);
         }
 
         //
@@ -151,11 +152,18 @@ namespace NoteBoard.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Name = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    var db = new ApplicationDbContext();
+                    var publicMainBoard = new Board() { BoardType = BoardType.Public }; //, UserId = user.Id };
+                    var privateMainBoard = new Board() { BoardType = BoardType.Private };//, UserId = user.Id };
+                    db.Boards.Add(publicMainBoard);
+                    db.Boards.Add(privateMainBoard);
+                    db.SaveChanges();
+
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
