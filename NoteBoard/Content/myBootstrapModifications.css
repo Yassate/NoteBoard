@@ -88,3 +88,13 @@ text-val-error {
     padding: 0;
     text-decoration: underline;
 }
+
+.card.add-note {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn.add-note {
+    max-width: 10rem;
+    float: right;
+}

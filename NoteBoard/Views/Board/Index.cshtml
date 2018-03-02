@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NoteBoard.Models.MainBoard>
+﻿@model IEnumerable<NoteBoard.Models.Board>
 
 @{
     ViewBag.Title = "Index";
@@ -18,9 +18,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MainBoardID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MainBoardID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MainBoardID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.BoardId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BoardId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BoardId })
         </td>
     </tr>
 }

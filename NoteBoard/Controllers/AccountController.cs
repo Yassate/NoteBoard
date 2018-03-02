@@ -158,10 +158,10 @@ namespace NoteBoard.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     var db = new ApplicationDbContext();
-                    var publicMainBoard = new Board() { BoardType = BoardType.Public }; //, UserId = user.Id };
-                    var privateMainBoard = new Board() { BoardType = BoardType.Private };//, UserId = user.Id };
-                    db.Boards.Add(publicMainBoard);
-                    db.Boards.Add(privateMainBoard);
+                    var publicBoard = new Board() { BoardType = BoardType.Public, UserId = user.Id };
+                    var privateBoard = new Board() { BoardType = BoardType.Private, UserId = user.Id };
+                    db.Boards.Add(publicBoard);
+                    db.Boards.Add(privateBoard);
                     db.SaveChanges();
 
                     

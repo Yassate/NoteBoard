@@ -11,11 +11,11 @@ namespace NoteBoard.Migrations
                 "dbo.Boards",
                 c => new
                     {
-                        MainBoardId = c.Int(nullable: false, identity: true),
+                        BoardId = c.Int(nullable: false, identity: true),
                         BoardType = c.Int(nullable: false),
                         UserId = c.String(maxLength: 128),
                     })
-                .PrimaryKey(t => t.MainBoardId)
+                .PrimaryKey(t => t.BoardId)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
@@ -36,12 +36,12 @@ namespace NoteBoard.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
-                        Board_MainBoardId = c.Int(),
+                        Board_BoardId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Boards", t => t.Board_MainBoardId)
+                .ForeignKey("dbo.Boards", t => t.Board_BoardId)
                 .Index(t => t.UserName, unique: true, name: "UserNameIndex")
-                .Index(t => t.Board_MainBoardId);
+                .Index(t => t.Board_BoardId);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -110,7 +110,7 @@ namespace NoteBoard.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Boards", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.SingleNotes", "BoardId", "dbo.Boards");
-            DropForeignKey("dbo.AspNetUsers", "Board_MainBoardId", "dbo.Boards");
+            DropForeignKey("dbo.AspNetUsers", "Board_BoardId", "dbo.Boards");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -120,7 +120,7 @@ namespace NoteBoard.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
-            DropIndex("dbo.AspNetUsers", new[] { "Board_MainBoardId" });
+            DropIndex("dbo.AspNetUsers", new[] { "Board_BoardId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Boards", new[] { "UserId" });
             DropTable("dbo.AspNetRoles");

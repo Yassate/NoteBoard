@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
 
@@ -10,10 +11,10 @@ namespace NoteBoard.Models
 {
     public enum BoardType { Public, Private, Shared}
 
-    public class Board
+        public class Board
     {
         [Key]
-        public int MainBoardId { get; set; }
+        public int BoardId { get; set; }
         public BoardType BoardType { get; set; }
 
         public string UserId { get; set; }

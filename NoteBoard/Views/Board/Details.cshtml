@@ -1,4 +1,4 @@
-﻿@model NoteBoard.Models.MainBoard
+﻿@model NoteBoard.Models.Board
 
 @{
     ViewBag.Title = "Details";
@@ -8,12 +8,12 @@
 <h2>Details</h2>
 
 <div>
-    <h4>MainBoard</h4>
+    <h4>Board</h4>
     <hr />
     <dl class="dl-horizontal">
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MainBoardID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BoardId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

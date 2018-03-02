@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "AddNote";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron" style="margin-top:2rem;">
+    <h1 class="display-3">Adding new note</h1>
+    <p class="lead">Please enter title and text of new note.</p>
+    <hr class="my-4">
+
+    @using (Html.BeginRouteForm("AddNoteToBoard_POST", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="card text-white bg-primary mb-3 add-note" style="max-width: 50rem;">
+            <div class="card-header">
+                <input class="form-control" placeholder="Note title" id="noteTitle" type="text" style="resize:none;max-width: 20rem;">
+            </div>     
+            <div class="card-body">
+                <textarea class="form-control" placeholder="Enter your note text here!" style="resize:vertical; max-width: none;" id="noteTextInput" rows="11"></textarea>
+            </div>
+            <div style = "padding:1rem;" >
+                <input type="submit" class="btn btn-secondary add-note" value="Add note!">
+            </div>
+        </div>
+     }
+
+
+    @*
+        @foreach (var Note in Model.SingleNotes)
+        {
+            if (noteCounter%3 == 0)
+            {
+                <div class="row"><div class="card-body"@Note.TextContent></div>
+            }
+            else if (noteCounter%3 == 2)
+            {
+                </div>
+            }
+        }
+    *@
+
+</div>

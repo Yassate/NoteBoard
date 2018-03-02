@@ -26,8 +26,8 @@ namespace NoteBoard
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/myBootstrapModifications.css",
-                      "~/Content/site.css",
-                      "~/Content/font-awesome.css"));
+                      "~/Content/myFontAwesomeModifications.css",
+                      "~/Content/site.css"));
         }
     }
 }

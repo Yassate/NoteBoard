@@ -10,6 +10,12 @@ namespace NoteBoard.Controllers
     {
         public ActionResult Index()
         {
+            bool val1 = User.Identity.IsAuthenticated;
+            if (val1)
+            {
+                return RedirectToAction("Private", "Board");
+
+            }
             return View();
         }
 

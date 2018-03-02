@@ -13,7 +13,7 @@ namespace NoteBoard.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801281532017_init"; }
+            get { return "201801281607399_init"; }
         }
         
         string IMigrationMetadata.Source

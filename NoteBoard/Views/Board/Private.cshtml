@@ -1,0 +1,31 @@
+﻿@model NoteBoard.Models.Board
+@{
+    ViewBag.Title = "Private";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{int noteCounter = 0; }
+
+<div class="jumbotron" style="margin-top:2rem;">
+    <h1 class="display-3">PRIVATE BOARD</h1>
+    <p class="lead">You can simply add note by pushing plus in the lower right orner.</p>
+    <hr class="my-4">
+
+    @*
+        @foreach (var Note in Model.SingleNotes)
+        {
+            if (noteCounter%3 == 0)
+            {
+                <div class="row"><div class="card-body"@Note.TextContent></div>
+            }
+            else if (noteCounter%3 == 2)
+            {
+                </div>
+            }
+        }
+    *@
+
+    <span class="fa-plus-blue">
+        <a href=@Url.RouteUrl("AddNoteToBoard_GET")><i class="far fa-plus-square fa-2x" style="float:right;"></i></a>
+    </span>
+</div>

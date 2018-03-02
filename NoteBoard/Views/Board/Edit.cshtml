@@ -1,4 +1,4 @@
-﻿@model NoteBoard.Models.MainBoard
+﻿@model NoteBoard.Models.Board
 
 @{
     ViewBag.Title = "Edit";
@@ -13,10 +13,10 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>MainBoard</h4>
+        <h4>Board</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MainBoardID)
+        @Html.HiddenFor(model => model.BoardID)
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
